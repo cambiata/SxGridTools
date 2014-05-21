@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%">
+	<button id="btnDirectoryPdf" text="Select pdf directory" />
+	<button id="myButton" text="Welcome" />
+</vbox>

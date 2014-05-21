@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%">
+	<grid columns="2">
+		<text text="Project name" />
+		<textinput id="tiProjectName" width="200" />
+		
+		<text text="Mp3 files" />		
+		<button id="btnDirectoryMp3" text="Select MP3 files" />
+		
+		<text text="PNG files" />
+		<button id="btnPngFiles" text="Select PNG files" />
+		
+		<text text="Create" />
+		<button id="btnCreateSQLite" text="Save SQLite file" />
+	</grid>
+		
+	
+</vbox>
