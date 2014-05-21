@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hbox width="100%">
+	<grid columns="2">
+		<text text="SQLite file" />
+		<button id="btnSelectSQLite" text="Välj SQLite-fil att starta grideditorn med" />
+		
+		<text text="Grid editor" />
+		<button id="btnGridedtior" text="Start grid editor" />
+	</grid>
+</hbox>

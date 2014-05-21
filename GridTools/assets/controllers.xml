@@ -8,6 +8,16 @@
 	</hbox>	
 	<vbox text="SQLite File">
 		<sqlitefilecontroller />
+	</vbox>	
+	<vbox text="Grideditor">
+		<gridcontroller />
+	</vbox>	
+	
+	<vbox text="Gridxml">
+		<gridxmlcontroller />
+	</vbox>	
+	<vbox text="Player">
+		<playercontroller />
 	</vbox>		
 	
 	

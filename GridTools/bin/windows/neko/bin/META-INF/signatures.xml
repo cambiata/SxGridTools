@@ -1,0 +1,38 @@
+<signatures>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="PackageSignature">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+      <SignatureMethod Algorithm="http://www.w3.org/TR/xmldsig-core#rsa-sha1"/>
+      <Reference URI="#PackageContents">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+        <DigestValue>n7khCzGyaz9qxdaP8xepNY/yx19kr/Hi7W5nKCefWqI=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue Id="PackageSignatureValue">MFtU3ZONpnk08nxu/17/bvhWDWoAdSLKW6jyar7K/6C+553BR75aECV57J40ZFMat6DAoCjhJ+1+
+4aEExlX6cp6OmEHTlqgzUmFHzNH8UTS14L2oiAzKCi1OGttkQz39j/N5Ow3/rxiJk05duV6HrNIv
+IWYzUttuJ+oY/EjYLS0=</SignatureValue>
+    <KeyInfo>
+      <X509Data>
+        <X509Certificate>MIICHzCCAYegAwIBAgIaMTkzMTBmZjk6MTJmZmM5ZmQ4NWU6LTgwMDAwDQYJKoZIhvcNAQEFBQAw
+PDELMAkGA1UEBhMCU0UxCTAHBgNVBAoTADEJMAcGA1UECxMAMRcwFQYDVQQDDA5Kb25hcyBOeXN0
+csO2bTAeFw0xMTA1MTcwNjIzNDRaFw0xNjA1MTcwNjIzNDRaMDwxCzAJBgNVBAYTAlNFMQkwBwYD
+VQQKEwAxCTAHBgNVBAsTADEXMBUGA1UEAwwOSm9uYXMgTnlzdHLDtm0wgZ8wDQYJKoZIhvcNAQEB
+BQADgY0AMIGJAoGBAKGjqWmhWJiaUHySOBopYwMdzVoK3TBz9WXsLtdL4jaoIe/3nIF4GWswJ0eG
+m6jW8OwPfooeKmBVEooH9YMJyBi3UOh5/uxqwYWgshSV6EJBL9KCWi5TZT+uNyq6GpUiraNxUG2c
+5jtlyQBWnMHxyKPiBq+jN0H2WB4nhB5AG2fVAgMBAAGjFzAVMBMGA1UdJQQMMAoGCCsGAQUFBwMD
+MA0GCSqGSIb3DQEBBQUAA4IAgQAxmW9uEsE+vmVZIqIaJiCTvGrXktTEr/FWFZaxhkAFgEymkQ4L
+Yy2iWeo9ue2/i0jEWhXGuBNnEaiEqUK/1+HFt3RddrMHNTMmkhie8+ES3gn8pRuR8IBMI3ea4412
+fTn8Wid7cGRgHhY19UC5xGyEGC08V63A1Sn5CW8aZcXVKA==</X509Certificate>
+      </X509Data>
+    </KeyInfo>
+    <Object>
+      <Manifest Id="PackageContents">
+        <Reference URI="mimetype"><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod><DigestValue>0/oCb84THKMagtI0Dy0KogEu92TegdesqRr/clXct1c=</DigestValue></Reference><Reference URI="META-INF/AIR/application.xml"><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod><DigestValue>uhLuD6uQEsduIt5gm8Ctl8UMK//J1KoFFnONyBQqSck=</DigestValue></Reference><Reference URI="ScorxSqlite1.swf"><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod><DigestValue>oR0J9UunX0PfSHpiAEjzZtN9GElTrR6hT3uwwTb9csI=</DigestValue></Reference>
+      </Manifest>
+    </Object>
+    
+  </Signature>
+</signatures>

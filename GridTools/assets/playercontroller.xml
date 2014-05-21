@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hbox width="100%">
+	<grid columns="2">
+		<text text="Webbserver" />	
+		<button id="btnTest" text="Starta lokal webbserver (http://localhost:2000/)" />
+		
+		<text text="Testsurfa" />	
+		<button id="btnSurf" text="Surf to test server" />
+	</grid>
+</hbox>

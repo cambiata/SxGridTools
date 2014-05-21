@@ -1,28 +1,42 @@
 package sx;
 
+import cx.FileTools;
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.Root;
 import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.themes.GradientTheme;
+import sx.controllers.GrideditorController;
 import sx.controllers.WelcomeController;
 import sx.controllers.SQLiteController;
 import sx.controllers.ConvertController;
-import sx.data.Files;
+import sx.controllers.GridxmlController;
+import sx.controllers.PlayerController;
+import sx.Files;
  
 class Main {
 	public static function main() 
 	{
 		//Toolkit.theme = new GradientTheme();
+		
+		
+		
 		Toolkit.init();
 		WelcomeControllerComponent.init();
-		SQLiteControllerComponent.init();
 		ConvertControllerComponent.init();
+		SQLiteControllerComponent.init();
+		GrideditorControllerComponent.init();
+		GridxmlControllerComponent.init();
+		PlayerControllerComponent.init();		
+		
+		
 		Toolkit.openFullscreen(function(root:Root) 
 		{
 			root.addChild(Toolkit.processXmlResource('assets/controllers.xml'));
 		});
 		Files.notify();
+		
+		trace(FileTools.getDirectory(Sys.executablePath()));
 
 	}
     

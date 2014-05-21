@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hbox width="100%">
+	<button id="btnSelect" text="Select SQLite file to export from" />
+	<button id="btnTest" text="ThisIsATestButton" />
+</hbox>

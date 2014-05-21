@@ -170,8 +170,14 @@ class AssetData {
 			type.set ("assets/controllers.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/convert.xml", "assets/convert.xml");
 			type.set ("assets/convert.xml", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/grideditor.xml", "assets/grideditor.xml");
+			type.set ("assets/grideditor.xml", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/GridxmlController.xml", "assets/GridxmlController.xml");
+			type.set ("assets/GridxmlController.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/openfl.svg", "assets/openfl.svg");
 			type.set ("assets/openfl.svg", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/playercontroller.xml", "assets/playercontroller.xml");
+			type.set ("assets/playercontroller.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/sqlitefile.xml", "assets/sqlitefile.xml");
 			type.set ("assets/sqlitefile.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/welcome.xml", "assets/welcome.xml");

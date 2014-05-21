@@ -8,11 +8,17 @@ import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.core.ClassManager;
 import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.controls.Button;
+import sx.type.TChannel;
+import sx.type.TChannels;
+import sx.type.TChannelsBase;
 import sx.util.ScorxDb;
+import sx.util.ScorxTools;
 import sys.db.Sqlite;
 import sys.io.Process;
 import systools.Dialogs;
-import sx.data.Files;
+import sx.Files;
+
+using cx.ArrayTools;
 
 /**
  * ...
@@ -96,16 +102,6 @@ class SQLiteController extends XMLController
 	
 	function onBtnSqliteClick(e:UIEvent) 
 	{
-		//Sqlite.open('test.sqlite');
-		
-		/*
-		if (Files.projectName.length < 3 )
-		{
-			Dialogs.message('GridTools', 'No project name', true);
-			return;
-		}		
-		*/
-		
 		if (Files.mp3FilesNames.length < 1 )
 		{
 			Dialogs.message('GridTools', 'No mp3 files selected', false);
@@ -142,6 +138,22 @@ class SQLiteController extends XMLController
 				return;
 			}
 			ScorxDb.createNew(filename);
+			
+			for (datafile in Files.pngFilesNames)
+			{
+				ScorxDb.insertPagesData(filename, datafile, FileTools.getBytes(datafile));
+			}			
+			
+			for (datafile in Files.mp3FilesNames)
+			{
+				var id = FileTools.getFilename(datafile, false);
+				ScorxDb.insertChannelData(filename, id, id, FileTools.getBytes(datafile));
+			}
+			
+		}
+		else
+		{
+			
 			
 		}
 	}	

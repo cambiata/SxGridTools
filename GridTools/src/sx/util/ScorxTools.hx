@@ -1,5 +1,7 @@
 package sx.util;
 import cx.FileTools;
+import sx.type.TGrid;
+import sx.type.TGridItem;
 //import ka.types.Scorxtillgangligheter;
 import haxe.Utf8;
 import sx.type.THashIds;
@@ -137,6 +139,28 @@ class ScorxTools
 		return listExamples;
 	}
 	*/
+	
+	static  public function createGridXml(items:TGrid):Xml
+	{
+		var xml = Xml.createElement('grid');
+
+		for (item in items)
+		{
+			var item:TGridItem = item;
+			var xitem:Xml = Xml.createElement('item');			
+			xitem.set('page', Std.string(item.page));
+			xitem.set('origpos', Std.string(item.pos).replace('.', ','));
+			xitem.set('pos', Std.string(item.pos).replace('.', ','));
+			xitem.set('type', Std.string(item.type));
+			xitem.set('x', Std.string(item.x));
+			xitem.set('y', Std.string(item.y));
+			xitem.set('w', Std.string(item.width));
+			xitem.set('h', Std.string(item.height));
+			xml.addChild(xitem);
+		}
+		
+		return xml;
+	}	
 	
 	
 
