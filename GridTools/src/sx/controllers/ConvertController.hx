@@ -3,8 +3,10 @@ package sx.controllers;
 import cx.FileTools;
 import cx.StrTools;
 import haxe.io.Path;
+import haxe.ui.toolkit.containers.ListView;
 import haxe.ui.toolkit.containers.VBox;
 import haxe.ui.toolkit.controls.Button;
+import haxe.ui.toolkit.controls.Text;
 import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.core.ClassManager;
 import haxe.ui.toolkit.events.UIEvent;
@@ -55,7 +57,7 @@ class ConvertController extends XMLController
 					trace('Pdf file does not exist');
 				}
 			}
-			
+			Files.notify();
 		}
 		catch (e:Dynamic)
 		{
@@ -86,6 +88,16 @@ class ConvertController extends XMLController
 	public function onFilesNotify():Void
 	{
 		trace('Convert Notify');
+		var txtPdfFile:Text = cast this.getComponent('txtPdfFile' );
+		txtPdfFile.text = Files.pdfFileName;
+		
+		var listPngFiles:ListView = cast this.getComponent('listPngFiles');
+		listPngFiles.dataSource.removeAll();
+		for (filename in Files.pngFilesNames)
+		{
+			listPngFiles.dataSource.add( { text: filename } );
+		}
+		
 	}
 	
 	function getPdfNrOfPages(pdfFileName:String):Int

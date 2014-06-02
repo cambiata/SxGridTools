@@ -2,6 +2,7 @@ package sx.controllers;
 
 import cx.FileTools;
 import haxe.ui.toolkit.containers.VBox;
+import haxe.ui.toolkit.controls.Text;
 import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.core.ClassManager;
 import haxe.ui.toolkit.events.UIEvent;
@@ -15,7 +16,7 @@ import systools.Dialogs;
 using cx.ArrayTools;
 using StringTools;
   
-@:build(haxe.ui.toolkit.core.Macros.buildController ("assets/GridxmlController.xml"))
+@:build(haxe.ui.toolkit.core.Macros.buildController ("assets/gridxmlcontroller.xml"))
 class GridxmlController extends XMLController
 {
 
@@ -80,7 +81,11 @@ class GridxmlController extends XMLController
 		
 	}
 	
-
+	public function onFilesNotify():Void
+	{
+		var txtSqliteFile:Text = cast this.getComponent('txtSqliteFile');
+		txtSqliteFile.text = Files.sqliteFileName;
+	}	
 	
 	
 	
@@ -99,6 +104,7 @@ class GridxmlControllerComponent extends VBox
 		super.initialize();
 		this.controller = new GridxmlController();
 		addChild(this.controller.view);
+		Files.observers.push(this.controller.onFilesNotify);
 	}	
 }
 

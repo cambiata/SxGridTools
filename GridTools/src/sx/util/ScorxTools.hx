@@ -140,7 +140,7 @@ class ScorxTools
 	}
 	*/
 	
-	static  public function createGridXml(items:TGrid):Xml
+	static public function createGridXml(items:TGrid, factor:Float=1.0):Xml
 	{
 		var xml = Xml.createElement('grid');
 
@@ -150,7 +150,7 @@ class ScorxTools
 			var xitem:Xml = Xml.createElement('item');			
 			xitem.set('page', Std.string(item.page));
 			xitem.set('origpos', Std.string(item.pos).replace('.', ','));
-			xitem.set('pos', Std.string(item.pos).replace('.', ','));
+			xitem.set('pos', Std.string(item.pos*factor).replace('.', ','));
 			xitem.set('type', Std.string(item.type));
 			xitem.set('x', Std.string(item.x));
 			xitem.set('y', Std.string(item.y));
@@ -160,7 +160,7 @@ class ScorxTools
 		}
 		
 		return xml;
-	}	
+	}		
 	
 	
 

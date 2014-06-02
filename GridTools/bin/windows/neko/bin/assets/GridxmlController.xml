@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <hbox width="100%">
-	<button id="btnSelect" text="Select SQLite file to export from" />
-	<button id="btnTest" text="ThisIsATestButton" />
+	<grid columns="2">
+		<button id="btnSelect" text="Välj SQLite file to export from" />
+		<text id="txtSqliteFile" text="txtSqliteFile" />
+		
+		
+		<button id="btnTest" text="ThisIsATestButton" />
+		<text id="x" text="x"></text>
+	</grid>
 </hbox>

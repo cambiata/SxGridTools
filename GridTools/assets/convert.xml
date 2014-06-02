@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<hbox width="100%">
-	<button id="btnDirectoryPdf" text="Select pdf directory" />
-	<button id="btnConvert" text="Convert PDF to PNG bitmap files" />	
-</hbox>
+<vbox width="100%" padding="10">
+	<text id="txtInfo" text="Ifall det inte finns PNG-filer med skärmstorlek (890x630) så kan dessa skapas här. "></text>
+	
+	<grid columns="2">
+		<button id="btnDirectoryPdf" text="Välj PDF-fil som ska omvandlas" />
+		<text id="txtPdfFile" text="txtPdfFile"></text>
+		
+		<button id="btnConvert" text="Omvandla PDF till PNG-files" />	
+		<listview id="listPngFiles" width="500" height="300" />
+	</grid>
+	
+</vbox>

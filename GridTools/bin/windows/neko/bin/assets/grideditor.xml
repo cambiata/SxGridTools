@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<hbox width="100%">
-	<grid columns="2">
-		<text text="SQLite file" />
-		<button id="btnSelectSQLite" text="VÃ¤lj SQLite-fil att starta grideditorn med" />
+<vbox width="100%">
+	
+	<text id="txtInfo" text="Här väljer du SQLite-fil (innehållande MP3- och PNG-filer) och startar Griddeditorn med denna. Därefter genomför du griddning, sparar informationen och avslutar Griddeditorn."></text>
+	<text id="txtInfo" text="Informationen om gridsynkroiniseringen lagras i SQLite-filen så att den kan provköras och exporteras i nästa steg."></text>
+	
+	<grid columns="2">		
+		<button id="btnSelectSQLite" text="Välj SQLite-fil" />
+		<text id="txtSqliteFile" text="txtSqliteFile" />
 		
-		<text text="Grid editor" />
-		<button id="btnGridedtior" text="Start grid editor" />
+		<button id="btnGridedtior" text="Starta Grideditor med vald SQLite-fil" />
+		<text text="" />
 	</grid>
-</hbox>
+</vbox>

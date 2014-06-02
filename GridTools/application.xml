@@ -9,7 +9,7 @@
 	<app main="sx.Main" file="GridTools" path="bin" />
 	
 	<window background="#ffffff" fps="60" />
-	<window width="800" height="480" unless="mobile" />
+	<window width="1200" height="600" unless="mobile" />
 	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
 	
 	<!-- classpath, haxe libs -->

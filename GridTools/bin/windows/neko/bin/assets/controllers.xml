@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <tabview width="100%" height="100%" id="tabs">
-	<vbox text="Welcome">
+	<vbox text="Information">
 		<welcomecontroller />
 	</vbox>
-	<hbox text="Graphic Files">		
+	<hbox text="Omvandla PDF till PNGs">		
 		<convertcontroller width="200" />
 	</hbox>	
-	<vbox text="SQLite File">
+	<vbox text="Skapa SQLite-fil">
 		<sqlitefilecontroller />
 	</vbox>	
-	<vbox text="Grideditor">
+	<vbox text="Skapa grid med grideditor">
 		<gridcontroller />
 	</vbox>	
 	
-	<vbox text="Gridxml">
-		<gridxmlcontroller />
-	</vbox>	
-	<vbox text="Player">
+	<vbox text="Testa och spara grid.xml">
 		<playercontroller />
 	</vbox>		
-	
-	
 </tabview>

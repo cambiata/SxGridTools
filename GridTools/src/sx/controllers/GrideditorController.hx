@@ -1,6 +1,7 @@
 package sx.controllers;
 import cx.FileTools;
 import haxe.ui.toolkit.containers.VBox;
+import haxe.ui.toolkit.controls.Text;
 import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.core.ClassManager;
 import haxe.ui.toolkit.events.UIEvent;
@@ -52,6 +53,12 @@ class GrideditorController extends XMLController
 		trace(exitCode);
 	}
 	
+	public function onFilesNotify():Void
+	{
+		var txtSqliteFile:Text = cast this.getComponent('txtSqliteFile');
+		txtSqliteFile.text = Files.sqliteFileName;
+	}	
+	
 }
 
 class GrideditorControllerComponent extends VBox
@@ -67,5 +74,6 @@ class GrideditorControllerComponent extends VBox
 		super.initialize();
 		this.controller = new GrideditorController();
 		addChild(this.controller.view);
+		Files.observers.push(this.controller.onFilesNotify);
 	}	
 }

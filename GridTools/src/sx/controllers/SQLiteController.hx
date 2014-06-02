@@ -1,7 +1,9 @@
 package sx.controllers;
 
 import cx.FileTools;
+import haxe.ui.toolkit.containers.ListView;
 import haxe.ui.toolkit.containers.VBox;
+import haxe.ui.toolkit.controls.Text;
 import haxe.ui.toolkit.controls.TextInput;
 import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.XMLController;
@@ -33,19 +35,7 @@ class SQLiteController extends XMLController
 	
 	public function new() 
 	{
-		
-		this.tiProjectName = this.getComponentAs('tiProjectName' , TextInput);
-		//this.tiProjectName.addEventListener(UIEvent., onProjectnameChange);
-		this.tiProjectName.onChange = function(e)
-		{
-			trace('onChange');
-			
-		}
-		
-		
 		this.attachEvent('btnCreateSQLite', UIEvent.CLICK, onBtnSqliteClick);
-		
-		
 		this.attachEvent('btnPngFiles', UIEvent.CLICK, onBtnPngFilesClick);
 		this.attachEvent('btnDirectoryMp3', UIEvent.CLICK, onBtnMp3FilesClick);
 	}
@@ -54,6 +44,11 @@ class SQLiteController extends XMLController
 	{
 		trace('change');
 		Files.projectName = this.tiProjectName.text;
+		
+
+		
+		
+		
 	}
 
 	
@@ -119,7 +114,7 @@ class SQLiteController extends XMLController
 		
 		var filters: FILEFILTERS =
 		{ 
-			count: 1
+			count: 0
 			, descriptions: ["SQLite files"]
 			, extensions: ["*.sqlite"]	
 		};			
@@ -128,7 +123,7 @@ class SQLiteController extends XMLController
 			"Select filename for SQLite file to save"			
 			, 'Select file name'
 			, 'test.sqlite'
-		);
+		);		
 		trace(filename);
 		if (filename != null) 
 		{
@@ -149,7 +144,8 @@ class SQLiteController extends XMLController
 				var id = FileTools.getFilename(datafile, false);
 				ScorxDb.insertChannelData(filename, id, id, FileTools.getBytes(datafile));
 			}
-			
+			Files.sqliteFileName = filename;
+			Files.notify();
 		}
 		else
 		{
@@ -158,7 +154,25 @@ class SQLiteController extends XMLController
 		}
 	}	
 	
-	
+	public function onFilesNotify():Void
+	{
+		var listPngFiles:ListView = cast this.getComponent('listPngFiles');
+		listPngFiles.dataSource.removeAll();
+		for (filename in Files.pngFilesNames)
+		{
+			listPngFiles.dataSource.add( { text: filename } );
+		}		
+		
+		var listMp3Files:ListView = cast this.getComponent('listMp3Files');
+		listMp3Files.dataSource.removeAll();
+		for (filename in Files.mp3FilesNames)
+		{
+			listMp3Files.dataSource.add( { text: filename } );
+		}	
+		
+		var txtSqliteFile:Text = cast this.getComponent('txtSqliteFile');
+		txtSqliteFile.text = Files.sqliteFileName;
+	}
 	
 	
 }
@@ -176,5 +190,6 @@ class SQLiteControllerComponent extends VBox
 		super.initialize();
 		this.controller = new SQLiteController();
 		addChild(this.controller.view);
+		Files.observers.push(this.controller.onFilesNotify);
 	}	
 }

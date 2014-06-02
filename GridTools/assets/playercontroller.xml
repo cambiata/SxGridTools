@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<hbox width="100%">
+<vbox width="100%">
+	
+	<text id="txtInfo" text="Här kan du starta en lokal webbserver (vilken låter dig 'surfa' inom din egen dator) och provköra ett Scorx-exempel. Servern plockar informationen direkt ur vald SQLite-fil.  "></text>
+	<text id="txtInfo" text="Du kan pröva dig fram till en fungernade omräkningsfaktor för pekar-/ljudsynkroniseringen, och slutligen exportera den grid.xml-fil som används i scorx.org-systemet.   "></text>
+	
 	<grid columns="2">
-		<text text="Webbserver" />	
-		<button id="btnTest" text="Starta lokal webbserver (http://localhost:2000/)" />
+	
+		<button id="btnStart" text="Starta lokal testwebbserver" width="200px" />
+		<text text="http://localhost:2000/" />	
 		
-		<text text="Testsurfa" />	
-		<button id="btnSurf" text="Surf to test server" />
+		<button id="btnSelectSQLite" text="Välj SQLite-fil som ska provköras" width="200px"/>
+		<text id="txtSqliteFile" text="txtSqliteFile" />
+
+		<button id="btnSurf" text="Provkör exempel i webbläsaren" width="200px" />
+		<text id="txtUrl" text="" />
+		
+		<button id="btnSurfFactor" text="Sätt omräkningsfaktor i webbläsaren" width="200px" />
+		<textinput id="tiFactor" text="1.000" width="200px" />
+		
+		<button id="btnExportGrid" text="Exportera grid.xml" width="200px" />
+		<text id="txtGridXmlFilename" text="" />
 	</grid>
-</hbox>
+	
+</vbox>

@@ -192,8 +192,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/convert.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/grideditor.xml", "assets/grideditor.xml");
 		type.set ("assets/grideditor.xml", Reflect.field (AssetType, "text".toUpperCase ()));
-		path.set ("assets/GridxmlController.xml", "assets/GridxmlController.xml");
-		type.set ("assets/GridxmlController.xml", Reflect.field (AssetType, "text".toUpperCase ()));
+		path.set ("assets/gridxmlcontroller.xml", "assets/gridxmlcontroller.xml");
+		type.set ("assets/gridxmlcontroller.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/openfl.svg", "assets/openfl.svg");
 		type.set ("assets/openfl.svg", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/playercontroller.xml", "assets/playercontroller.xml");

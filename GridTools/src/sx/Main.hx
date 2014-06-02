@@ -17,11 +17,9 @@ import sx.Files;
 class Main {
 	public static function main() 
 	{
-		//Toolkit.theme = new GradientTheme();
-		
-		
 		
 		Toolkit.init();
+		
 		WelcomeControllerComponent.init();
 		ConvertControllerComponent.init();
 		SQLiteControllerComponent.init();
@@ -29,11 +27,11 @@ class Main {
 		GridxmlControllerComponent.init();
 		PlayerControllerComponent.init();		
 		
-		
 		Toolkit.openFullscreen(function(root:Root) 
 		{
 			root.addChild(Toolkit.processXmlResource('assets/controllers.xml'));
 		});
+		
 		Files.notify();
 		
 		trace(FileTools.getDirectory(Sys.executablePath()));

@@ -2,6 +2,7 @@ package sx;
 
 import cx.EncodeTools;
 import cx.FileTools;
+import haxe.Json;
 import neko.Web;
 import sx.util.ScorxDb;
 import sx.util.ScorxTools;
@@ -18,11 +19,15 @@ class Main {
 		var _data = Web.getParams().get('data') ;
 		if (_data != null) 
 		{
-			var confdata = EncodeTools.base64Decode(_data);
+			var confdata = StringTools.urlDecode(_data);
 			if (FileTools.exists(confdata))
 			{
 				var datafile = confdata;
 				FileTools.putContent(conf, datafile);
+			}
+			else
+			{
+				Sys.println('Can\'t find SQLite file $confdata');
 			}
 		}
 		
@@ -31,12 +36,38 @@ class Main {
 			var confdata = FileTools.getContent(conf);
 			if (FileTools.exists(confdata)) datafile = confdata;
 		}		
-		//-------------------------------------------------------------------------
 		if (!FileTools.exists(datafile)) 
 		{
 			Sys.println('NO DATA FILE!');
 			return;
 		}
+		
+		//-------------------------------------------------------------------------
+		
+		
+		var factorfile = 'factor.conf';
+		var factor = 1.0;		
+		var _factor = Web.getParams().get('factor') ;
+		if (_factor != null)
+		{
+			factor = Std.parseFloat(_factor);
+			if (factor < 0.5 || factor > 1.5) 
+			{
+				Sys.println('Strange factor value: $factor');
+				return;
+			}
+			//Sys.println('Saving $factorfile');
+			FileTools.putContent(factorfile, Std.string(factor));
+		}
+		
+		if (FileTools.exists(factorfile))
+		{
+			//Sys.println('Reading factor file...');
+			var factordata  = FileTools.getContent(factorfile);
+			//Sys.println(factordata);
+			factor = Std.parseFloat(factordata);
+		}		
+		
 		//---------------------------------------------------------------------------		
 		if (uri.startsWith('/media/screen/count/1'))
 		{
@@ -55,12 +86,19 @@ class Main {
 		else if (uri.startsWith('/media/grid/1'))
 		{
 			var grid = ScorxDb.getGrid(datafile);
-			var gridXml = ScorxTools.createGridXml(grid);
+			var gridXml = ScorxTools.createGridXml(grid, factor);
 			Sys.println(gridXml.toString());
 		}	
 		else if (uri.startsWith('/media/channels/1'))
 		{			
-			Sys.println('[ { "Id":"100", "Label":"Sopran" }, { "Id":"110", "Label":"Alt" }, { "Id":"120", "Label":"Bas" }, { "Id":"200", "Label":"Komp" } ]');
+			var chdata = new Array<{Id:String, Label:String}>();
+			var channels = ScorxDb.getChannelsBase(datafile);
+			for (channel in channels)
+			{
+				
+				chdata.push( { Id:FileTools.getFilename(channel.id), Label:FileTools.getFilename(channel.name) } );
+			}
+			Sys.println(Json.stringify(chdata));
 		}
 		else if (uri.startsWith('/media/channel/1'))
 		{
@@ -83,7 +121,7 @@ class Main {
 		}		
 		else
 		{
-			Sys.println('DATA: ' + datafile);
+			Sys.println('SQLITE DATA: ' + datafile + '<br/>GRID FACTOR: ' + factor);
 			var playerHtml = FileTools.getContent('player.html');
 			Sys.println(playerHtml);			
 		}
