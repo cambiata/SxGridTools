@@ -190,6 +190,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/controllers.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/convert.xml", "assets/convert.xml");
 		type.set ("assets/convert.xml", Reflect.field (AssetType, "text".toUpperCase ()));
+		path.set ("assets/exportcontroller.xml", "assets/exportcontroller.xml");
+		type.set ("assets/exportcontroller.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/grideditor.xml", "assets/grideditor.xml");
 		type.set ("assets/grideditor.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/gridxmlcontroller.xml", "assets/gridxmlcontroller.xml");
@@ -213,6 +215,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var loadManifest = false;
+		loadManifest = true;
 		loadManifest = true;
 		loadManifest = true;
 		loadManifest = true;
@@ -964,6 +967,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
 #elseif html5
 
 
@@ -1041,6 +1045,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 @:keep class __ASSET__fonts_oxygen_bold_ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "fonts/Oxygen-Bold.ttf"; } #end }
 @:keep class __ASSET__fonts_oxygen_ttf extends flash.text.Font { #if (!openfl_html5_dom) public function new () { super (); fontName = "fonts/Oxygen.ttf"; } #end }
+
 
 
 

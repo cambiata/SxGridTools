@@ -171,29 +171,42 @@ class PlayerController extends XMLController
 	function onBtnStart(e:UIEvent) 
 	{
 		trace('onBtnTest');
+		var txtServerstatus:Text = cast this.getComponent('txtServerstatus');
+
 		var http = new  Http('localhost:2000');
 		http.onData = function(data)
 		{
 			trace(data);
-			var msg = 'Testserver http://localhost:2000/ seems to be running';
-			Dialogs.message(msg, msg, false);
+			txtServerstatus.text = 'Testserver http://localhost:2000/ seems to be running';
 		}
 		http.onError = function(error)
 		{
-			trace('ERROR');
 			//var command = Environment.exeDir + 'nekotools server -rewrite';	
+			
+			var batcommand = 'nekotools server -rewrite -d ' + Files.exeDirectory;
+			FileTools.putContent(Environment.exeDir  + '/nekoserver.bat', batcommand);
+			trace(Environment.exeDir  + '\nekoserver.bat');
+			
+			
 			var command = 'start ' + Environment.exeDir + 'nekoserver.bat';
 			var exitCode = Sys.command(command, []);			
-			trace(exitCode);
-			var msg = 'Testserver http://localhost:2000/ should  be started now';
-			Dialogs.message(msg, msg, false);			
+			
+			trace(exitCode);			
+			if (exitCode == 0)
+			{
+				txtServerstatus.text = 'Testserver http://localhost:2000/ should  be started now';
+			}
+			else
+			{
+				var msg = 'Hmm... ExitCode: $exitCode';
+				Dialogs.message(msg, msg, false);			
+			}
+			
 		}
 		
 		http.request(false);
 		
 		///------------------------------------------------------------------------------------------------------------------------
-		
-		
 		
 		/*
 

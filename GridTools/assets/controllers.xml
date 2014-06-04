@@ -15,5 +15,10 @@
 	
 	<vbox text="Testa och spara grid.xml">
 		<playercontroller />
+	</vbox>	
+	
+	<vbox text="Exportera mediafiler">
+		<exportcontroller />
 	</vbox>		
+	
 </tabview>

@@ -1,1 +1,1 @@
-nekotools server -rewrite
+nekotools server -rewrite -d F:/SxGridTools/GridTools/bin/windows/neko/bin/

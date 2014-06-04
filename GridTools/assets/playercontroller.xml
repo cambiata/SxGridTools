@@ -7,7 +7,7 @@
 	<grid columns="2">
 	
 		<button id="btnStart" text="Starta lokal testwebbserver" width="200px" />
-		<text text="http://localhost:2000/" />	
+		<text id="txtServerstatus" text="http://localhost:2000/" />	
 		
 		<button id="btnSelectSQLite" text="Välj SQLite-fil som ska provköras" width="200px"/>
 		<text id="txtSqliteFile" text="txtSqliteFile" />

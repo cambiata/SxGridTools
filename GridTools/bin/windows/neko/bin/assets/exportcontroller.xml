@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%">
+	<text id="txtInfo" text="Här kan du exportera mp3-filer och png-filer från en SQLite-fil. "></text>
+	<grid columns="2">
+		<button id="btnSelectSQLite" text="Välj SQLite-fil" />
+		<text id="txtSqliteFile" text="txtSqliteFile" />		
+		
+		<button id="btnExportMp3" text="Exportera mp3-filer" />
+		<text id="txtMp3Files" text="Mp3-filer:"></text>
+
+		<button id="btnExportPng" text="Exportera png-filer" />
+		<text id="txtPngFiles" text="Png-filer:"></text>
+	</grid>
+</vbox>

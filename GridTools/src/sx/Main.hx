@@ -12,6 +12,7 @@ import sx.controllers.SQLiteController;
 import sx.controllers.ConvertController;
 import sx.controllers.GridxmlController;
 import sx.controllers.PlayerController;
+import sx.controllers.ExportController;
 import sx.Files;
  
 class Main {
@@ -26,6 +27,7 @@ class Main {
 		GrideditorControllerComponent.init();
 		GridxmlControllerComponent.init();
 		PlayerControllerComponent.init();		
+		ExportControllerComponent.init();
 		
 		Toolkit.openFullscreen(function(root:Root) 
 		{

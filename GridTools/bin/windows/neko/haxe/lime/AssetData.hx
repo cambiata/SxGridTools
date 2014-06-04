@@ -170,6 +170,8 @@ class AssetData {
 			type.set ("assets/controllers.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/convert.xml", "assets/convert.xml");
 			type.set ("assets/convert.xml", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/exportcontroller.xml", "assets/exportcontroller.xml");
+			type.set ("assets/exportcontroller.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/grideditor.xml", "assets/grideditor.xml");
 			type.set ("assets/grideditor.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/gridxmlcontroller.xml", "assets/gridxmlcontroller.xml");

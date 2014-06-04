@@ -1,4 +1,6 @@
 package sx;
+import cx.FileTools;
+import neko.Lib;
 
 /**
  * ...
@@ -6,6 +8,8 @@ package sx;
  */
 class Files
 {
+	static public var exeDirectory:String = FileTools.getDirectory(Sys.executablePath());
+	
 	static public var projectName:String = '';
 	static public var pdfFileName:String = '';
 	static public var mp3FilesNames:Array<String> = [];
